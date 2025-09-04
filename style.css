@@ -1,0 +1,119 @@
+body {
+    background-color: white;
+}
+
+#logomarca {
+    margin: center;
+    width: 60px;
+}
+
+#logotitulo {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 670;
+    font-style: normal;
+    color: rgb(95, 29, 2); 
+    forced-color-adjust: calc(brown);
+    font-size: 59px;
+}
+
+#logo {
+    background-color: bisque ;
+    margin: center;
+}
+
+#sobre {
+   text-align: center;
+   font-family: "Permanent Marker", cursive;
+   font-size: 56px;
+}
+
+#sobre1 {
+    text-align: center;
+    font-size: 55px;
+}
+
+#sobre2 {
+    text-align: center;
+    font-size: 55px;
+}
+
+#sobre3 {
+    text-align: center;
+    font-size: 55px;
+}
+
+#cardapio {
+   text-align: center;
+   font-family: "Permanent Marker", cursive;
+   font-size: 56px;
+}
+
+#horário {
+   text-align: center;
+   font-family: "Permanent Marker", cursive;
+   font-size: 56px;
+}
+
+#contato {
+   text-align: center;
+   font-family: "Permanent Marker", cursive;
+   font-size: 56px;
+}
+
+#horario1 {
+   text-align: center;
+   font-family: "Limelight", sans-serif;
+}
+
+#horario2 {
+   text-align: center;
+   font-family: "Limelight", sans-serif;
+}
+
+#horario3 {
+   text-align: center;
+   font-family: "Limelight", sans-serif;
+}
+
+#imgrelogio {
+    align-items: center;
+    text-align: center;
+    padding-left: 560px;
+}
+
+ul {
+    list-style: none;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+ul li a {
+    display: flex;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2000px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.7s;
+    
+    background: rgba(255, 255, 255, 0.3)
+}
+
+ul li a:hover {
+      border: 1px solid white;
+    background: rgba(1, 1, 1, 0.5)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#footer1 {
+    text-align: center;
+    font-size: 10px;
+}
