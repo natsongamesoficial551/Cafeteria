@@ -1,119 +1,554 @@
-body {
-    background-color: white;
-}
-
-#logomarca {
-    margin: center;
-    width: 60px;
-}
-
-#logotitulo {
-    font-family: "Fira Sans", sans-serif;
-    font-weight: 670;
-    font-style: normal;
-    color: rgb(95, 29, 2); 
-    forced-color-adjust: calc(brown);
-    font-size: 59px;
-}
-
-#logo {
-    background-color: bisque ;
-    margin: center;
-}
-
-#sobre {
-   text-align: center;
-   font-family: "Permanent Marker", cursive;
-   font-size: 56px;
-}
-
-#sobre1 {
-    text-align: center;
-    font-size: 55px;
-}
-
-#sobre2 {
-    text-align: center;
-    font-size: 55px;
-}
-
-#sobre3 {
-    text-align: center;
-    font-size: 55px;
-}
-
-#cardapio {
-   text-align: center;
-   font-family: "Permanent Marker", cursive;
-   font-size: 56px;
-}
-
-#horário {
-   text-align: center;
-   font-family: "Permanent Marker", cursive;
-   font-size: 56px;
-}
-
-#contato {
-   text-align: center;
-   font-family: "Permanent Marker", cursive;
-   font-size: 56px;
-}
-
-#horario1 {
-   text-align: center;
-   font-family: "Limelight", sans-serif;
-}
-
-#horario2 {
-   text-align: center;
-   font-family: "Limelight", sans-serif;
-}
-
-#horario3 {
-   text-align: center;
-   font-family: "Limelight", sans-serif;
-}
-
-#imgrelogio {
-    align-items: center;
-    text-align: center;
-    padding-left: 560px;
-}
-
-ul {
-    list-style: none;
-    gap: 16px;
-    display: flex;
-    flex-direction: column;
-
-}
-
-ul li a {
-    display: flex;
-    height: 52px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2000px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.7s;
-    
-    background: rgba(255, 255, 255, 0.3)
-}
-
-ul li a:hover {
-      border: 1px solid white;
-    background: rgba(1, 1, 1, 0.5)
-}
-
+/* Reset e configurações base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    background: linear-gradient(135deg, #f5f1eb 0%, #e8ddd4 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header/Logo Section */
+#logo {
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #cd853f 100%);
+    padding: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    box-shadow: 0 8px 32px rgba(139, 69, 19, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+#logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+#logomarca {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#logomarca:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+#logotitulo {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Seção Sobre */
+section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#sobre {
+    text-align: center;
+    font-family: "Permanent Marker", cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #8b4513;
+    margin-bottom: 3rem;
+    position: relative;
+    animation: slideInLeft 1s ease-out;
+}
+
+#sobre::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #8b4513, #cd853f);
+    border-radius: 2px;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#sobre1, #sobre2, #sobre3 {
+    text-align: center;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    color: #5d4037;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    line-height: 1.8;
+}
+
+#sobre1 { animation-delay: 0.3s; }
+#sobre2 { animation-delay: 0.6s; }
+#sobre3 { animation-delay: 0.9s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Seção Cardápio */
+#cardapio {
+    text-align: center;
+    font-family: "Permanent Marker", cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #8b4513;
+    margin: 4rem 0 3rem 0;
+    position: relative;
+}
+
+#cardapio::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, #8b4513, #cd853f);
+    border-radius: 2px;
+}
+
+/* Grid do Cardápio */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#cafe1, #cafe2, #cafe3, #bolo1, #bolo2, #salgado1 {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 1.3rem;
+    color: #5d4037;
+    font-weight: 600;
+    border: 2px solid transparent;
+}
+
+#cafe1:hover, #cafe2:hover, #cafe3:hover, 
+#bolo1:hover, #bolo2:hover, #salgado1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(139, 69, 19, 0.25);
+    border-color: #cd853f;
+}
+
+#cafe1::before, #cafe2::before, #cafe3::before,
+#bolo1::before, #bolo2::before, #salgado1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(205, 133, 63, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+#cafe1:hover::before, #cafe2:hover::before, #cafe3:hover::before,
+#bolo1:hover::before, #bolo2:hover::before, #salgado1:hover::before {
+    left: 100%;
+}
+
+#cafe1img, #cafe2img, #cafe3img, #bolo1img, #bolo2img, #salgado1img {
+    width: 100%;
+    max-width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+}
+
+#cafe1:hover #cafe1img, #cafe2:hover #cafe2img, #cafe3:hover #cafe3img,
+#bolo1:hover #bolo1img, #bolo2:hover #bolo2img, #salgado1:hover #salgado1img {
+    transform: scale(1.05);
+}
+
+/* Seção Horário */
+#horário {
+    text-align: center;
+    font-family: "Permanent Marker", cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #8b4513;
+    margin: 4rem 0 3rem 0;
+    position: relative;
+}
+
+#horário::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #8b4513, #cd853f);
+    border-radius: 2px;
+}
+
+.horario-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#horario1, #horario2, #horario3 {
+    text-align: center;
+    font-family: "Limelight", sans-serif;
+    font-size: 1.5rem;
+    color: #5d4037;
+    background: #fff;
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+}
+
+#horario1:hover, #horario2:hover, #horario3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(139, 69, 19, 0.25);
+    background: linear-gradient(135deg, #fff 0%, #f9f7f4 100%);
+}
+
+#imgrelogio {
+    display: block;
+    margin: 2rem auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.3);
+    transition: transform 0.3s ease;
+}
+
+#imgrelogio:hover {
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* Seção Contato */
+#contato {
+    text-align: center;
+    font-family: "Permanent Marker", cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #8b4513;
+    margin: 4rem 0 3rem 0;
+    position: relative;
+}
+
+#contato::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #8b4513, #cd853f);
+    border-radius: 2px;
+}
+
+ul {
+    list-style: none;
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+ul li {
+    width: 100%;
+    max-width: 300px;
+}
+
+ul li a {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+    position: relative;
+    overflow: hidden;
+    gap: 0.8rem;
+}
+
+ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+ul li a:hover::before {
+    left: 100%;
+}
+
+ul li a:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(139, 69, 19, 0.4);
+    background: linear-gradient(135deg, #a0522d 0%, #cd853f 100%);
+}
+
+/* Ícones SVG para redes sociais */
+ul li:nth-child(1) a::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5rem;
+}
+
+ul li:nth-child(2) a::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5rem;
+}
+
+ul li:nth-child(3) a::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
+    padding: 2rem;
+    margin-top: 4rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #cd853f, transparent);
+}
+
 #footer1 {
     text-align: center;
-    font-size: 10px;
+    font-size: 0.9rem;
+    color: #d7ccc8;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #logo {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+    
+    #logomarca {
+        width: 60px;
+        height: 60px;
+    }
+    
+    section {
+        padding: 2rem 1rem;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    #cafe1, #cafe2, #cafe3, #bolo1, #bolo2, #salgado1 {
+        padding: 1rem;
+    }
+    
+    .horario-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    #horario1, #horario2, #horario3 {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    #imgrelogio {
+        width: 80px;
+        height: 80px;
+    }
+    
+    ul {
+        padding: 1rem;
+    }
+    
+    ul li a {
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #logotitulo {
+        font-size: 2rem;
+    }
+    
+    #sobre, #cardapio, #horário, #contato {
+        font-size: 2rem;
+    }
+    
+    #sobre1, #sobre2, #sobre3 {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    #cafe1, #cafe2, #cafe3, #bolo1, #bolo2, #salgado1 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animações de scroll */
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplicar animação aos elementos do cardápio */
+#cafe1, #cafe2, #cafe3, #bolo1, #bolo2, #salgado1 {
+    animation: slideInFromBottom 0.8s ease-out forwards;
+}
+
+#cafe1 { animation-delay: 0.1s; }
+#cafe2 { animation-delay: 0.2s; }
+#cafe3 { animation-delay: 0.3s; }
+#bolo1 { animation-delay: 0.4s; }
+#bolo2 { animation-delay: 0.5s; }
+#salgado1 { animation-delay: 0.6s; }
+
+/* Efeito de parallax sutil no background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(205, 133, 63, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Melhorias de acessibilidade */
+a:focus, button:focus {
+    outline: 2px solid #cd853f;
+    outline-offset: 2px;
+}
+
+/* Transições suaves para todos os elementos interativos */
+* {
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
 }
